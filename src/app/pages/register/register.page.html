@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color ="new">
+    <ion-grid>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col>
+          <ion-title class="ion-text-center">Registration</ion-title>
+        </ion-col>
+        <ion-col class="align-right">
+          <a class="link" href="#"><i>Cancel</i></a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="ion-padding">
+    <ion-row>
+      <ion-col align-self-center>
+        <!--
+        <ion-item>
+          <ion-label position="floating">First Name</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Last Name</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        -->
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Confirm Password</ion-label>
+          <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="button-center">
+    <ion-button (click)="register()" routerDirection="forward" shape="round" expand="block" color="success">Register</ion-button>
+  </div>
+</ion-content>

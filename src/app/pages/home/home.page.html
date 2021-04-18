@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color ="new">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Home
+          </ion-col>
+          <ion-col class="ion-text-right">
+            <i>FindAPlace</i>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+
+  <ion-searchbar placeholder="Search by City" (ionChange)="getListing($event)"></ion-searchbar>
+
+  <ion-card class="card" *ngFor="let listing of list">
+    <ion-img src="assets/images/missing.png"></ion-img>
+    <ion-card-content>
+      <ion-card-header>
+        <ion-card-subtitle style="color: #4EAFFC;">{{listing.docId}}</ion-card-subtitle>
+        <ion-card-title>{{listing.address_line_1}}, {{listing.city}}, {{listing.state}}</ion-card-title>
+      </ion-card-header>
+      <ion-grid>
+        <ion-row class="row-padding-bottom">
+          <ion-col>
+            <i>&nbsp;&nbsp;&nbsp;&nbsp; {{listing.description}}</i>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-text-center font">
+          <ion-col class="pricing">
+            ${{listing.price_per_month}} /mo
+          </ion-col>
+          <ion-col class="beds-border">
+            {{listing.number_of_bedrooms}} Beds
+          </ion-col>
+          <ion-col>
+            {{listing.number_of_bathrooms}} Baths
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="divider"></div>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-text-center row-padding">
+          <ion-col>
+            <ion-button (click)="call(listing.contact_phone_number)" class="button-width">
+              <ion-icon slot="start" name="call-outline"></ion-icon>
+              Call
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="email(listing.contact_email, listing.contact_name)" class="button-width">
+              <ion-icon slot="start" name="mail-outline"></ion-icon>
+              Email
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-text-center">
+          <ion-col>
+            <ion-button (click)="text(listing.contact_phone_number)" class="button-width">
+            <ion-icon slot="start" name="send-outline"></ion-icon>
+              SMS
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

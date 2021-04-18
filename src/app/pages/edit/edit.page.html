@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar color ="new">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Edit Your Listing
+          </ion-col>
+          <ion-col class="ion-text-right">
+            <i>FindAPlace</i>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding bg" color="light">
+  <ion-card class="card" *ngFor="let listing of listing$ | async">
+  <ion-card-header color="primary">Please Edit the following:</ion-card-header>
+
+  <ion-grid>
+    <ion-row>
+
+
+      <ion-col align-self-center>
+
+        <ion-item>
+          <ion-button color="medium" slot="end">Upload a Photo</ion-button>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Description</ion-label>
+          <ion-textarea [(ngModel)]="listing.description"></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Price per month <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input [(ngModel)]="listing.price_per_month" required type="text">$</ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Number of bathroom(s) <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input [(ngModel)]="listing.number_of_bathrooms" required type="text" value =""></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Number of bedroom(s) <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input [(ngModel)]="listing.number_of_bedrooms" required type="text" value =""></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Address<ion-text color="danger">*</ion-text></ion-label>
+          <ion-input [(ngModel)]="listing.address_line_1" placeholder="Address Line 1"></ion-input>
+          <ion-input [(ngModel)]="listing.address_line_2" placeholder="Address Line 2"></ion-input>
+          <ion-input [(ngModel)]="listing.city" placeholder="City"></ion-input>
+          <ion-input [(ngModel)]="listing.state" placeholder="State"></ion-input>
+          <ion-input [(ngModel)]="listing.zip_code" placeholder="Zip Code"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Contact Information<ion-text color="danger">*</ion-text></ion-label>
+          <ion-input [(ngModel)]="listing.contact_name" placeholder="Contact Name"></ion-input>
+          <ion-input [(ngModel)]="listing.contact_phone_number" placeholder="Phone number"></ion-input>
+          <ion-input [(ngModel)]="listing.contact_email" placeholder="Email"></ion-input>
+        </ion-item>
+
+          <div class="button-center">
+            <ion-button (click)="edit()" shape="round" expand="block" fill="outline" color="" class="button-sign-in">Request Edit</ion-button>
+            <ion-button [routerLink]="['/home']" routerDirection="back" shape="undefined" expand="block" fill="clear" color="danger">Cancel</ion-button>
+          </div>
+
+      </ion-col>
+
+
+
+    </ion-row>
+    <ion-row>
+      <ion-col align-self-center>
+
+
+
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-card>
+</ion-content>

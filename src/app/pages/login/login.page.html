@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color ="new">
+    <ion-title class="ion-text-center">Welcome</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding bg">
+  <ion-img class="image-resize" src="assets/images/logo.png"></ion-img>
+  <ion-grid>
+    <ion-row>
+
+
+      <ion-col align-self-center>
+          <ion-input class="input" placeholder="Email" [(ngModel)]="email"></ion-input>
+          <ion-input class="input" type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+
+          <div class="button-center">
+            <ion-button (click)="login()" routerDirection="forward" shape="round" expand="block" fill="outline" class="button-sign-in">Sign In</ion-button>
+          </div>
+
+
+
+          <div class="ion-text-center">
+            <br>
+              <a class="link" [routerLink]="['/reset-password']" ><i>Forgot Password</i></a>
+          </div>
+
+      </ion-col>
+
+
+    </ion-row>
+    <ion-row>
+      <ion-col align-self-center>
+
+        <span class="divider line one-line button-center">or</span>
+
+        <!--routerDirection is the animation that displays (forward, back, or root)-->
+        <ion-button class="button-center" [routerLink]="['/register']" routerDirection="back" expand="block" color="primary">Create an Account</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

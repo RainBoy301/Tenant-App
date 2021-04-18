@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color ="warning">
+    <ion-title><ion-grid>
+      <ion-row>
+        <ion-col >
+          <a class="link" [routerLink]="['/moderator-default']" routerDirection="back"><i>Back</i></a>
+        </ion-col>
+        <ion-col>
+          Requests to Create
+        </ion-col>
+        <ion-col class="ion-text-right">
+          <i>FindAPlace Moderator</i>
+        </ion-col>
+      </ion-row>
+    </ion-grid></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+
+  <ion-card class="card" *ngFor="let one of creationRequest$ | async">
+    <ion-card-header color="warning">
+      {{one.docId}} Requested creation
+    </ion-card-header>
+    <ion-img src="assets/images/missing.png"></ion-img>
+    <ion-card-content>
+      <ion-card-header>
+        <ion-card-title>{{one.address_line_1}}, {{one.city}}, {{one.state}}</ion-card-title>
+        <ion-card-subtitle>{{one.address_line_2}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-grid>
+        <ion-row style="padding-bottom: 1em;">
+          <ion-col>
+            &nbsp;&nbsp;&nbsp;&nbsp; {{one.description}}
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-text-center">
+          <ion-col class="pricing">
+            ${{one.price_per_month}} /mo
+          </ion-col>
+          <ion-col class="beds-border">
+            {{one.number_of_bedrooms}} Beds
+          </ion-col>
+          <ion-col>
+            {{one.number_of_bathrooms}} Baths
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="divider"></div> 
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-text-center row-padding">  
+          <ion-col>
+            <ion-button color="success" (click)="approve(one.docId)" style="width: 9em;">
+              <ion-icon name="thumbs-up-outline"></ion-icon>
+              Approve
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="danger" (click)="reject(one.docId)" style="width: 9em;">
+              <ion-icon name="thumbs-down-outline"> </ion-icon>
+              Reject
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

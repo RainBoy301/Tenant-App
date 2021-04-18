@@ -1,0 +1,8 @@
+{
+  "name": "FindAPlace",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

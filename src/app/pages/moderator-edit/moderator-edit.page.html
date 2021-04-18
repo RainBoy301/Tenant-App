@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color ="warning">
+    <ion-title><ion-grid>
+      <ion-row>
+        <ion-col >
+          <a class="link" [routerLink]="['/moderator-default']" routerDirection="back"><i>Back</i></a>
+        </ion-col>
+        <ion-col>
+          Requests to Edit
+        </ion-col>
+        <ion-col class="ion-text-right">
+          <i>FindAPlace Moderator</i>
+        </ion-col>
+      </ion-row>
+    </ion-grid></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+  <ion-card class="card">
+    <ion-card-header color="warning">
+      Username#123 Requested to Edit on ##/##/####
+    </ion-card-header>
+    <ion-img src="assets/images/missing.png"></ion-img>
+    <ion-card-content>
+      <ion-card-header>
+        <ion-card-title>Street, City, State</ion-card-title>
+      </ion-card-header>
+      <ion-grid>
+        <ion-row style="padding-bottom: 1em;">
+          <ion-col>
+            &nbsp;&nbsp;&nbsp;&nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-text-center">
+          <ion-col class="pricing">
+            $Price /mo
+          </ion-col>
+          <ion-col class="beds-border">
+            # Beds
+          </ion-col>
+          <ion-col>
+            # Baths
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="divider"></div>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-text-center row-padding">
+          <ion-col>
+            <ion-button color="success" (click)="presentAlert()" style="width: 9em;">
+              <ion-icon name="thumbs-up-outline"></ion-icon>
+              Approve
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="danger" (click)="presentAlert()" style="width: 9em;">
+              <ion-icon name="thumbs-down-outline"> </ion-icon>
+              Reject
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

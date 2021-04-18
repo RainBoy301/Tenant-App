@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color ="new">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Your Approved Listings
+          </ion-col>
+          <ion-col class="ion-text-right">
+            <i>FindAPlace</i>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+  <ion-card class="card" *ngFor="let listing of listing$ | async">
+    <ion-img src="assets/images/missing.png"></ion-img>
+    <ion-card-content>
+      <ion-card-header>
+        <ion-card-subtitle style="color: #4EAFFC;">{{listing.docId}}</ion-card-subtitle>
+        <ion-card-title>{{listing.address_line_1}}, {{listing.city}}, {{listing.state}}</ion-card-title>
+      </ion-card-header>
+      <ion-grid>
+        <ion-row class="row-padding-bottom">
+          <ion-col>
+            <i>&nbsp;&nbsp;&nbsp;&nbsp; {{listing.description}}</i>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-text-center font">
+          <ion-col class="pricing">
+            ${{listing.price_per_month}} /mo
+          </ion-col>
+          <ion-col class="beds-border">
+            {{listing.number_of_bedrooms}} Beds
+          </ion-col>
+          <ion-col>
+            {{listing.number_of_bathrooms}} Baths
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="divider"></div>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-text-center row-padding">
+          <ion-col>
+            <ion-button color="warning" (click)="edit(listing.docId)" style="width: 7em;">
+              <ion-icon slot="start" name="create-outline"></ion-icon>
+              Edit
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="danger" (click)="remove(listing.docId)" style="width: 7em;">
+              Remove
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

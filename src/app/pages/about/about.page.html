@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color ="new">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title >About</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding bg">
+  <ion-card class="card">
+    <ion-card-content style="color: black;">
+      <ion-text>
+        Developers:
+        <br>
+        Maxwell Southworth
+        <br>
+        Bao Hoang
+        <br>
+        Spring 2020 CSCI 458
+        <br>
+        University of Mississippi
+        <br><br>
+        This app was made with the purpose of helping people find a place to rent. It is also our intent to let the owners of the room advertise their places to more people. Please see the description for more information.
+        <br><br>
+        Current Version: 1.0
+        <br><br>
+        Property owned by Maxwell Southworth & Bao Hoang
+
+      </ion-text>
+
+
+
+      <div class="button-center">
+        <ion-button [routerLink]="['/home']" routerDirection="back" shape="round" expand="block" fill="outline" class="button-sign-in">Back to main page</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
